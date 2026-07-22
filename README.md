@@ -1,48 +1,54 @@
-# CrowdStrike Falcon Investigation Portfolio
+# 🛡️ CrowdStrike Falcon Investigation Portfolio
 
-This repository contains documented security investigations performed in a controlled home lab using CrowdStrike Falcon.
+Welcome!
 
-Each investigation follows a structured incident response workflow, including:
+This repository documents security investigations performed in my CrowdStrike Falcon home lab.
 
-- Alert Analysis
-- Process Investigation
-- Detection Analysis
-- MITRE ATT&CK Mapping
-- Impact Assessment
-- Root Cause Analysis
-- Incident Classification
-- Lessons Learned
+Each investigation follows a structured SOC workflow including:
 
-> **Note**
->
-> All investigations were intentionally performed inside an isolated home lab for learning and validation purposes. No production systems or third-party environments were involved.
+- 🚨 Alert Review
+- 🔍 Process Investigation
+- 🧠 Detection Analysis
+- 🎯 MITRE ATT&CK Mapping
+- 📊 Impact Assessment
+- ✅ Incident Classification
+- 📸 Supporting Evidence
 
 ---
 
-## Investigation Summary
+## 🧪 Lab Environment
+
+| Component | Details |
+|-----------|---------|
+| EDR | CrowdStrike Falcon |
+| Operating System | Windows 10 |
+| Environment | Isolated Home Lab |
+| Purpose | Detection Validation & SOC Investigation |
+
+---
+
+# 📂 Investigations
 
 | # | Investigation | MITRE ATT&CK | Severity | Status |
 |---|---------------|--------------|----------|--------|
-| 01 | Credential Access via SAM Hive Export | T1003 - OS Credential Dumping | Critical | Closed |
+| 01 | [Credential Access via SAM Hive Export](./Investigation-01-Credential-Access-SAM-Hive) | T1003 | 🔴 Critical | ✅ Closed |
 
 ---
 
-## Repository Structure
+## 🎯 Skills Demonstrated
 
-```
-CrowdStrike-Investigations
-│
-├── README.md
-│
-├── Investigation-01-Credential-Access-SAM-Hive
-│   ├── README.md
-│   └── images
-│
-├── Investigation-02
-│
-├── Investigation-03
-│
-└── Investigation-04
-```
+- CrowdStrike Falcon Investigation
+- Endpoint Detection & Response (EDR)
+- Incident Triage
+- Process Tree Analysis
+- Event Timeline Analysis
+- MITRE ATT&CK Mapping
+- Credential Access Investigation
+- Root Cause Analysis
+- Incident Documentation
 
-More investigations will be added as additional attack techniques are validated and analyzed.
+---
+
+## 📌 Note
+
+All investigations were intentionally performed inside an isolated home lab for learning and validation purposes. No production systems or third-party environments were involved.
