@@ -181,7 +181,7 @@ This recording demonstrates CrowdStrike Falcon immediately terminating the malic
 
 ## Falcon Prevention Demonstration
 
-Video: [falcon-blocked-execution.mp4](Images/falcon-blocked-execution.mp4)
+Video: [falcon-blocked-execution.gif](Images/falcon-prevention-demo.gif)
 
 ---
 
