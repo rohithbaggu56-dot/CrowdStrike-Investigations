@@ -145,14 +145,6 @@ CrowdStrike Falcon successfully detected and prevented the persistence attempt. 
 
 ---
 
-# 🎥 Prevention Demonstration
-
-**Falcon-Blocked-Execution.mp4**
-
-This recording demonstrates CrowdStrike Falcon immediately terminating the malicious process during execution, preventing the Scheduled Task persistence attempt before it could complete.
-
----
-
 # 📸 Investigation Evidence
 
 ## Detection Overview
@@ -179,9 +171,13 @@ This recording demonstrates CrowdStrike Falcon immediately terminating the malic
 
 ---
 
-## Falcon Prevention Demonstration
+## Prevention Demonstration
 
-Video: [falcon-blocked-execution.gif](Images/falcon-prevention-demo.gif)
+🎥 **Falcon-Blocked-Execution.mp4**
+
+https://github.com/user-attachments/assets/c5108f25-d778-42a3-a4d2-36701caeb4a2
+
+This video demonstrates CrowdStrike Falcon immediately blocking the scheduled task persistence attempt during execution, preventing the attack before persistence could be established.
 
 ---
 
