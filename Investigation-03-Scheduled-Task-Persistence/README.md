@@ -157,31 +157,31 @@ This recording demonstrates CrowdStrike Falcon immediately terminating the malic
 
 ## Detection Overview
 
-![Detection Overview](Images/01-Detection-Overview.png)
+![Detection Overview](Images/detection-overview.png)
 
 ---
 
 ## Process Tree
 
-![Process Tree](Images/02-Process-Tree.png)
+![Process Tree](Images/process-tree.png)
 
 ---
 
 ## Events Timeline
 
-![Events Timeline](Images/03-Events-Timeline.png)
+![Events Timeline](Images/events-timeline.png)
 
 ---
 
 ## Closed Alert
 
-![Closed Alert](Images/04-Alert-Closed.png)
+![Closed Alert](Images/closed-alert.png)
 
 ---
 
 ## Falcon Prevention Demonstration
 
-**Video:** `Falcon-Blocked-Execution.mp4`
+**Video:** `falcon-blocked-execution.mp4`
 
 ---
 
