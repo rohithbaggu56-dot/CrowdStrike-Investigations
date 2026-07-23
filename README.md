@@ -32,6 +32,7 @@ Each investigation follows a structured SOC workflow including:
 | # | Investigation | MITRE ATT&CK | Severity | Status |
 |---|---------------|--------------|----------|--------|
 | 01 | [Credential Access via SAM Hive Export](./Investigation-01-Credential-Access-SAM-Hive) | T1003 | 🔴 Critical | ✅ Closed |
+| 02 | [Atomic Red Team Git Clone Detection](./Investigation-02-Atomic-Red-Team-Git-Clone) | N/A | 🟠 High | ✅ Closed |
 
 ---
 
