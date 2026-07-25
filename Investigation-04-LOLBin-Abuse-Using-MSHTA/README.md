@@ -87,7 +87,8 @@ This investigation contains three different MSHTA abuse techniques.
 
 Scenario-1-VBScript-Blocked.mp4
 ### 🎥 Scenario Demos
-* Click to watch: (Scenario-1-VBScript-Execution/Videos/Scenario-1-VBScript-Blocked.mp4)
+
+![VBScript Blocked](Scenario-1-VBScript-Execution/Videos/Scenario-1-VBScript-Blocked.mp4)
 
 
 ---
