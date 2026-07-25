@@ -222,17 +222,9 @@ The attack was prevented before the simulated technique could complete successfu
 
 ---
 
-## 🎥 Prevention Demonstration
+## 🎬 Attack Demonstration
 
-<video controls width="900">
-<source src="Scenario-1-VBScript-Execution/Videos/Scenario-1-VBScript-Blocked.mp4" type="video/mp4">
-</video>
-
-If GitHub does not render the video:
-
-➡️ **Watch Prevention Demo**
-
-[Scenario-1-VBScript-Blocked.mp4](Scenario-1-VBScript-Execution/Videos/Scenario-1-VBScript-Blocked.mp4)
+![VBScript Attack Blocked](Scenario-1-VBScript-Execution/Images/06-vbscript-attack-blocked.gif)
 
 ---
 
@@ -316,17 +308,9 @@ Behavioral analytics identified the execution chain as suspicious and prevented 
 
 ---
 
-## 🎥 Prevention Demonstration
+## 🎬 Attack Demonstration
 
-<video controls width="900">
-<source src="Scenario-2-HTA-Execution/Videos/Scenario-2-HTA-Blocked.mp4" type="video/mp4">
-</video>
-
-If GitHub does not render the video:
-
-➡️ **Watch Prevention Demo**
-
-[Scenario-2-HTA-Blocked.mp4](Scenario-2-HTA-Execution/Videos/Scenario-2-HTA-Blocked.mp4)
+![HTA Attack Blocked](Scenario-2-HTA-Execution/Images/06-hta-attack-blocked.gif))
 
 ---
 
@@ -399,17 +383,9 @@ Behavioral analytics correlated the parent-child process relationship and identi
 
 ---
 
-## 🎥 Prevention Demonstration
+## 🎬 Attack Demonstration
 
-<video controls width="900">
-<source src="Scenario-3-PowerShell-Execution/Videos/Scenario-3-PowerShell-Blocked.mp4" type="video/mp4">
-</video>
-
-If GitHub does not render the video:
-
-➡️ **Watch Prevention Demo**
-
-[Scenario-3-PowerShell-Blocked.mp4](Scenario-3-PowerShell-Execution/Videos/Scenario-3-PowerShell-Blocked.mp4)
+![PowerShell Attack Blocked](Scenario-3-PowerShell-Execution/Images/05-powershell-attack-blocked.gif)
 
 ---
 
