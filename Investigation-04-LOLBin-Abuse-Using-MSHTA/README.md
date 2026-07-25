@@ -1,57 +1,196 @@
 # 🚨 Investigation 04 – Living-off-the-Land Binary (LOLBin) Abuse Using MSHTA
 
+---
+
 ## 📌 Investigation Summary
 
-This investigation demonstrates how Microsoft HTML Application Host (**MSHTA.exe**) can be abused as a Living-off-the-Land Binary (LOLBin) to execute malicious scripts while blending with legitimate Windows activity.
+This investigation demonstrates how attackers can abuse the legitimate Microsoft HTML Application Host (**MSHTA.exe**) to execute malicious scripts while bypassing traditional security controls.
 
-Using **Atomic Red Team (T1218.005)**, three different MSHTA execution techniques were simulated inside an isolated home SOC lab protected by **CrowdStrike Falcon**.
+Using **Atomic Red Team (MITRE ATT&CK T1218.005 – MSHTA)**, three different execution scenarios were performed inside an isolated Windows 10 home SOC lab protected by **CrowdStrike Falcon**.
 
-Rather than documenting each detection as an independent investigation, this repository combines all three related attack scenarios to demonstrate how the same LOLBin can generate different behavioral detections depending on the execution method.
+Although all three scenarios abuse the same Windows binary (**MSHTA.exe**), CrowdStrike generated different behavioral detections because each execution chain exhibited different malicious characteristics.
+
+This investigation highlights how CrowdStrike Falcon relies on **behavioral analysis**, **AI Powered IOAs**, **process lineage**, and **command-line inspection** instead of traditional signature-based detection.
 
 ---
 
 # 🧪 Lab Environment
 
 | Component | Value |
-|-----------|-------|
+|------------|--------|
 | Operating System | Windows 10 |
 | Endpoint Protection | CrowdStrike Falcon |
-| Attack Framework | Atomic Red Team |
+| Testing Framework | Atomic Red Team |
 | LOLBin | MSHTA.exe |
-| Shell | PowerShell |
-| MITRE ATT&CK | T1218.005 – Mshta |
+| Shell | Windows PowerShell |
+| ATT&CK Technique Executed | T1218.005 – MSHTA |
 | Investigation Type | Home SOC Lab |
 
 ---
 
 # 🎯 Investigation Objectives
 
-- Simulate LOLBin abuse using MSHTA
+- Simulate Living-off-the-Land Binary (LOLBin) abuse using MSHTA
+- Execute multiple Atomic Red Team attack scenarios
 - Observe CrowdStrike Falcon behavioral detections
-- Analyze process execution chains
 - Investigate AI Powered IOAs
-- Review process trees and timelines
-- Map observed behavior to MITRE ATT&CK
-- Validate Falcon prevention capabilities
+- Analyze Process Trees
+- Analyze Event Timelines
+- Compare different Falcon detections generated from the same LOLBin
+- Map findings to MITRE ATT&CK
 - Produce SOC-style investigation documentation
 
 ---
 
-# ⚔️ Attack Scenarios
+# 🔍 Investigation Workflow
 
-This investigation contains three different MSHTA abuse techniques.
+```
+
+Atomic Red Team Execution
+│
+▼
+CrowdStrike Falcon Detection
+│
+▼
+SOC Alert Review
+│
+▼
+Process Tree Analysis
+│
+▼
+Behavior Analysis
+│
+▼
+MITRE ATT&CK Mapping
+│
+▼
+Impact Assessment
+│
+▼
+Incident Classification
+│
+▼
+Case Closed
+
+```
 
 ---
 
-# Scenario 1 – VBScript Execution via MSHTA
+# ⚙️ Why Were Three Different Alerts Generated?
 
-### Technique
+Although every scenario abused the same Microsoft binary (**MSHTA.exe**), CrowdStrike Falcon generated different detections because each execution method demonstrated different behavioral characteristics.
 
-- MSHTA executes embedded VBScript
-- VBScript launches PowerShell
-- Falcon detects suspicious script execution
-- AI Powered IOA generated
-- Process blocked before malicious execution
+### Scenario 1 – Embedded VBScript
+
+The embedded VBScript executed through MSHTA produced suspicious command execution and script interpreter activity.
+
+Falcon classified this behavior as:
+
+- Execution via Command and Scripting Interpreter
+- MITRE T1059
+
+---
+
+### Scenario 2 – HTA Execution
+
+Executing a malicious HTA file produced exploit-like behavior together with defense evasion indicators.
+
+Falcon classified this behavior as:
+
+- Defense Evasion via Exploitation for Defense Evasion
+- MITRE T1211
+
+---
+
+### Scenario 3 – PowerShell Execution
+
+MSHTA launched PowerShell directly using suspicious command-line arguments.
+
+Falcon classified this activity as:
+
+- Execution via User Execution
+
+Unlike the previous two detections, Falcon treated this primarily as suspicious user-driven execution instead of mapping it to another MITRE technique.
+
+---
+
+# 🧩 Atomic Technique vs CrowdStrike Detection
+
+This investigation demonstrates an important distinction.
+
+**Atomic Red Team executed:**
+
+- **T1218.005 – MSHTA**
+
+However, CrowdStrike Falcon generated behavioral detections based on the observed execution chain rather than simply reporting the Atomic ATT&CK technique.
+
+| Scenario | Atomic Technique | Falcon Behavioral Detection |
+|-----------|-----------------|-----------------------------|
+| Scenario 1 | T1218.005 – MSHTA | T1059 – Command and Scripting Interpreter |
+| Scenario 2 | T1218.005 – MSHTA | T1211 – Exploitation for Defense Evasion |
+| Scenario 3 | T1218.005 – MSHTA | Execution via User Execution |
+
+This demonstrates CrowdStrike's behavioral detection capabilities and shows how Falcon correlates process relationships, command-line activity, and runtime behavior to classify suspicious activity.
+
+---
+
+# ⚔️ Scenario 1 – Embedded VBScript Execution
+
+## Alert Summary
+
+| Field | Value |
+|------|------|
+| Detection Name | Execution via Command and Scripting Interpreter |
+| Technique ID | T1059 |
+| Risk Score | **80 / 100** |
+| Severity | High |
+| Falcon Action | Process Killed |
+| Objective | Follow Through |
+| IOA Name | ObfCmdToUnusualScript |
+
+---
+
+## Detection Description
+
+CrowdStrike detected an obfuscated command attempting to launch an unusual script through **MSHTA.exe**.
+
+Behavioral analysis identified suspicious command interpreter activity consistent with script-based attack techniques.
+
+The process was immediately terminated before execution could continue.
+
+---
+
+## Risk Assessment
+
+**Risk Score:** **80 / 100**
+
+Falcon assigned a high risk score because the execution exhibited:
+
+- Obfuscated command-line activity
+- Suspicious scripting behavior
+- Command interpreter abuse
+- High-confidence behavioral indicators
+
+---
+
+## Investigation Outcome
+
+CrowdStrike Falcon successfully detected and interrupted the malicious activity through behavioral analysis.
+
+The detection included:
+
+- AI Powered IOA analysis
+- Process tree correlation
+- Command-line inspection
+- Event timeline generation
+- Parent-child process relationship analysis
+- Automatic process termination
+
+The attack was prevented before the simulated technique could complete successfully.
+
+---
+
+# 🖼️ Investigation Evidence
 
 ## Detection Overview
 
@@ -77,31 +216,75 @@ This investigation contains three different MSHTA abuse techniques.
 
 ---
 
-## Alert Closure
+## Alert Closed
 
 ![Alert Closed](Scenario-1-VBScript-Execution/Images/05-alert-closed.png)
 
-## Prevention Demonstration
+---
 
-🎥 Video
+## 🎥 Prevention Demonstration
 
-Scenario-1-VBScript-Blocked.mp4
-### 🎥 Scenario Demos
+<video controls width="900">
+<source src="Scenario-1-VBScript-Execution/Videos/Scenario-1-VBScript-Blocked.mp4" type="video/mp4">
+</video>
 
-![VBScript Blocked](Scenario-1-VBScript-Execution/Videos/Scenario-1-VBScript-Blocked.mp4)
+If GitHub does not render the video:
 
+➡️ **Watch Prevention Demo**
+
+[Scenario-1-VBScript-Blocked.mp4](Scenario-1-VBScript-Execution/Videos/Scenario-1-VBScript-Blocked.mp4)
 
 ---
 
-# Scenario 2 – HTA Execution via MSHTA
+# ⚔️ Scenario 2 – HTA Execution via MSHTA
 
-### Technique
+## Alert Summary
 
-- PowerShell downloads and launches a malicious HTA
-- MSHTA executes the HTA
-- Falcon detects exploit-like behavior
-- AI Powered IOA generated
-- Process terminated immediately
+| Field | Value |
+|------|------|
+| Detection Name | Defense Evasion via Exploitation for Defense Evasion |
+| Technique ID | T1211 |
+| Risk Score | **72 / 100** |
+| Severity | High |
+| Falcon Action | Process Blocked |
+| Objective | Keep Access |
+| IOA Name | ExploitKit |
+
+---
+
+## Detection Description
+
+CrowdStrike Falcon detected suspicious execution of a malicious HTML Application (HTA) launched through **MSHTA.exe**.
+
+Behavioral analysis identified exploit-kit characteristics commonly associated with defense evasion techniques. Falcon generated an **ExploitKit** behavioral detection and blocked the malicious process before execution could continue.
+
+Unlike Scenario 1, this detection focused on exploit-style behavior rather than command interpreter activity.
+
+---
+
+## Risk Assessment
+
+**Risk Score:** **72 / 100**
+
+The elevated risk score resulted from Falcon identifying:
+
+- Exploit-kit style execution
+- Defense evasion behavior
+- Suspicious HTA execution
+- Malicious execution chain through MSHTA
+- High-confidence behavioral indicators
+
+---
+
+## Investigation Outcome
+
+CrowdStrike Falcon successfully interrupted the attack before the malicious HTA could complete execution.
+
+Behavioral analytics identified the execution chain as suspicious and prevented the attack before additional payloads could be executed.
+
+---
+
+# 🖼️ Investigation Evidence
 
 ## Detection Overview
 
@@ -127,28 +310,70 @@ Scenario-1-VBScript-Blocked.mp4
 
 ---
 
-## Alert Closure
+## Alert Closed
 
 ![Alert Closed](Scenario-2-HTA-Execution/Images/05-alert-closed.png)
 
 ---
 
-## Prevention Demonstration
+## 🎥 Prevention Demonstration
 
-🎥 Video
+<video controls width="900">
+<source src="Scenario-2-HTA-Execution/Videos/Scenario-2-HTA-Blocked.mp4" type="video/mp4">
+</video>
 
-Scenario-2-HTA-Blocked.mp4
+If GitHub does not render the video:
+
+➡️ **Watch Prevention Demo**
+
+[Scenario-2-HTA-Blocked.mp4](Scenario-2-HTA-Execution/Videos/Scenario-2-HTA-Blocked.mp4)
 
 ---
 
-# Scenario 3 – PowerShell Execution via MSHTA
+# ⚔️ Scenario 3 – PowerShell Execution via MSHTA
 
-### Technique
+## Alert Summary
 
-- MSHTA launches PowerShell
-- PowerShell executes suspicious commands
-- Falcon generates multiple behavioral detections
-- Process blocked before completion
+| Field | Value |
+|------|------|
+| Detection Name | Execution via User Execution |
+| Risk Score | **55 / 100** |
+| Severity | Medium |
+| Falcon Action | Process Blocked |
+| AI Powered IOA | Yes |
+| Detection Type | Behavioral Detection |
+
+---
+
+## Detection Description
+
+CrowdStrike Falcon detected suspicious PowerShell execution initiated through **MSHTA.exe**.
+
+Unlike the previous scenarios, Falcon classified this activity primarily as **User Execution**, indicating that the execution chain originated from user-driven activity exhibiting suspicious behavioral characteristics.
+
+The malicious process was blocked before execution could continue.
+
+---
+
+## Risk Assessment
+
+**Risk Score:** **55 / 100**
+
+This scenario received a lower risk score because fewer malicious behavioral indicators were observed compared to the previous two scenarios.
+
+Although suspicious, the execution chain contained fewer exploit characteristics while still matching Falcon's behavioral detection logic.
+
+---
+
+## Investigation Outcome
+
+CrowdStrike Falcon successfully detected the suspicious PowerShell execution chain and blocked the process before the simulated attack could complete.
+
+Behavioral analytics correlated the parent-child process relationship and identified suspicious command-line execution through MSHTA.
+
+---
+
+# 🖼️ Investigation Evidence
 
 ## Detection Overview
 
@@ -168,176 +393,129 @@ Scenario-2-HTA-Blocked.mp4
 
 ---
 
-## Alert Closure
+## Alert Closed
 
 ![Alert Closed](Scenario-3-PowerShell-Execution/Images/04-alert-closed.png)
 
 ---
 
-## Prevention Demonstration
+## 🎥 Prevention Demonstration
 
-🎥 Video
+<video controls width="900">
+<source src="Scenario-3-PowerShell-Execution/Videos/Scenario-3-PowerShell-Blocked.mp4" type="video/mp4">
+</video>
 
-Scenario-3-PowerShell-Blocked.mp4
+If GitHub does not render the video:
 
----
+➡️ **Watch Prevention Demo**
 
-# 🔍 Investigation Workflow
-
-```
-Atomic Red Team Execution
-            │
-            ▼
-CrowdStrike Falcon Detection
-            │
-            ▼
-Alert Review
-            │
-            ▼
-Process Tree Analysis
-            │
-            ▼
-Behavior Analysis
-            │
-            ▼
-MITRE ATT&CK Mapping
-            │
-            ▼
-Impact Assessment
-            │
-            ▼
-Incident Classification
-            │
-            ▼
-Case Closed
-```
-
----
-
-# 🛡️ CrowdStrike Detection Summary
-
-Across all three attack scenarios, CrowdStrike Falcon successfully identified suspicious MSHTA activity using behavioral analytics rather than traditional signature-based detection.
-
-Observed detections included:
-
-- AI Powered IOA
-- Execution via User Execution
-- Execution via Command and Scripting Interpreter
-- Defense Evasion
-- Exploit Kit Detection
-- Obfuscated Command Detection
-- Process Blocked
-- Process Killed
+[Scenario-3-PowerShell-Blocked.mp4](Scenario-3-PowerShell-Execution/Videos/Scenario-3-PowerShell-Blocked.mp4)
 
 ---
 
 # 📊 Detection Comparison
 
-| Scenario | Execution Method | MITRE Technique | Falcon Response |
-|-----------|-----------------|----------------|----------------|
-| Scenario 1 | VBScript | T1218.005 | Process Blocked |
-| Scenario 2 | HTA | T1218.005 | Process Killed |
-| Scenario 3 | PowerShell | T1218.005 | Process Blocked |
+| Scenario | Detection Name | MITRE Technique | Risk Score | Severity | Falcon Action |
+|----------|----------------|----------------|-----------:|----------|---------------|
+| Scenario 1 | Execution via Command and Scripting Interpreter | T1059 | 80 | High | Process Killed |
+| Scenario 2 | Defense Evasion via Exploitation for Defense Evasion | T1211 | 72 | High | Process Blocked |
+| Scenario 3 | Execution via User Execution | Not Displayed by Falcon | 55 | Medium | Process Blocked |
 
 ---
 
 # 🎯 MITRE ATT&CK Mapping
 
-## Atomic Red Team Simulation
+## Atomic Red Team Technique Executed
 
-- **T1218.005 – Mshta**
+| Framework | Technique |
+|-----------|-----------|
+| MITRE ATT&CK | T1218.005 – MSHTA |
 
-## CrowdStrike Behavioral Detections
-
-During execution, Falcon generated behavioral detections associated with:
-
-- User Execution
-- Command and Scripting Interpreter
-- Defense Evasion
-- Exploitation for Defense Evasion
-
-This demonstrates that behavioral EDR detections may differ from the original Atomic Red Team technique while still identifying malicious activity.
+All three Atomic Red Team tests leveraged **MSHTA.exe**, a legitimate Windows binary that can be abused to execute malicious scripts and payloads while blending with normal system activity.
 
 ---
 
-# 🔎 Key Findings
+## CrowdStrike Behavioral Classification
 
-- MSHTA can execute multiple script types without requiring additional executables.
-- CrowdStrike relied on behavioral analytics instead of signature-based detection.
-- Different execution methods generated different behavioral detections.
-- AI Powered IOAs successfully correlated suspicious process activity.
-- Parent-child process relationships provided valuable investigation context.
-- Falcon interrupted execution before persistence or system compromise occurred.
+Rather than reporting the executed Atomic technique directly, CrowdStrike Falcon classified each scenario based on its observed behavior during execution.
 
----
+| Scenario | Falcon Classification |
+|----------|-----------------------|
+| Scenario 1 | T1059 – Command and Scripting Interpreter |
+| Scenario 2 | T1211 – Exploitation for Defense Evasion |
+| Scenario 3 | Execution via User Execution |
 
-# 📈 Investigation Outcome
-
-All three simulated attack scenarios were successfully detected by CrowdStrike Falcon.
-
-The platform generated multiple behavioral detections, correlated related process activity, and prevented execution by blocking or terminating suspicious processes.
-
-No persistence, credential theft, privilege escalation, lateral movement, or unauthorized compromise occurred because all activity was intentionally executed inside a controlled home SOC laboratory.
+This demonstrates Falcon's behavior-based detection approach, where detections are generated from runtime activity, process relationships, and command-line behavior instead of relying solely on the executed ATT&CK technique.
 
 ---
 
-# 📋 Incident Classification
+# 🔑 Key Findings
 
-| Field | Value |
-|--------|-------|
-| Classification | Benign True Positive |
-| Severity | High |
-| Status | Closed |
+- Successfully simulated three MSHTA abuse techniques using Atomic Red Team.
+- CrowdStrike Falcon detected all three scenarios through behavioral analysis.
+- The same LOLBin (**MSHTA.exe**) generated different detections based on how it was used.
+- Falcon correlated parent-child process relationships and suspicious command-line activity to classify each attack.
+- Process Tree and Event Timeline views provided valuable context for investigation.
+- Falcon automatically blocked or terminated the malicious processes before the simulated attacks could complete.
+- The investigation demonstrates the effectiveness of behavior-based detection against Living-off-the-Land Binary (LOLBin) abuse.
+
+---
+
+# 📝 Incident Classification
+
+| Category | Result |
+|----------|--------|
 | Environment | Home SOC Lab |
-| Root Cause | Authorized Atomic Red Team simulation |
+| Detection Type | Behavioral Detection |
+| Classification | Benign True Positive |
+| Root Cause | Authorized Atomic Red Team Simulation |
 | Business Impact | None |
+| Containment | Automatic by CrowdStrike Falcon |
+| Analyst Action | Investigated and Closed |
 
 ---
 
-# 🧠 Skills Demonstrated
+# 💼 Skills Demonstrated
 
 - CrowdStrike Falcon Investigation
-- Endpoint Detection & Response (EDR)
-- AI Powered IOA Analysis
-- Process Tree Analysis
-- Event Timeline Investigation
 - Behavioral Detection Analysis
-- MITRE ATT&CK Mapping
+- Endpoint Detection and Response (EDR)
 - Living-off-the-Land Binary (LOLBin) Analysis
+- Process Tree Investigation
+- Event Timeline Analysis
+- MITRE ATT&CK Mapping
 - Atomic Red Team Testing
-- Incident Triage
 - Threat Hunting
-- IOC Analysis
-- SOC Documentation
-
----
-
-# 📂 Repository Structure
-
-```
-Investigation-04-LOLBin-Abuse-Using-MSHTA
-│
-├── README.md
-│
-├── Scenario-1-VBScript-Execution
-│   ├── Images
-│   └── Videos
-│
-├── Scenario-2-HTA-Execution
-│   ├── Images
-│   └── Videos
-│
-└── Scenario-3-PowerShell-Execution
-    ├── Images
-    └── Videos
-```
+- Incident Triage
+- Security Alert Analysis
+- Root Cause Analysis
+- Technical Documentation
 
 ---
 
 # 📚 Lessons Learned
 
-- Legitimate Windows binaries can be abused to execute malicious code.
-- Behavioral EDR detection provides greater visibility than signature-based detection alone.
-- Different execution methods of the same ATT&CK technique can produce different behavioral detections.
-- Reviewing process relationships and command-line arguments is essential during endpoint investigations.
-- CrowdStrike Falcon effectively detected and prevented multiple MSHTA abuse techniques inside a controlled SOC lab.
+- Legitimate Windows binaries such as **MSHTA.exe** can be abused to execute malicious code.
+- The same ATT&CK technique may produce different behavioral detections depending on execution characteristics.
+- Behavioral analytics provide greater visibility than traditional signature-based detection.
+- Process lineage and command-line analysis are critical for understanding attack chains.
+- AI-powered behavioral detections improve visibility into modern attack techniques.
+- Accurate investigation requires correlating alerts with process trees, timelines, and behavioral context.
+
+---
+
+# ✅ Conclusion
+
+This investigation demonstrated how **CrowdStrike Falcon** detects and prevents abuse of the legitimate Windows binary **MSHTA.exe** through behavior-based analysis.
+
+Although all three attack simulations executed the same Atomic Red Team technique (**T1218.005 – MSHTA**), Falcon generated different detections based on the observed runtime behavior, highlighting its ability to analyze process relationships, command-line activity, and execution patterns rather than relying solely on predefined signatures.
+
+The simulated attacks were successfully detected and blocked or terminated, providing valuable insight into Falcon's AI-powered endpoint protection capabilities and reinforcing the importance of behavioral analytics in modern endpoint security.
+
+---
+
+## ⚠️ Disclaimer
+
+This investigation was performed in an isolated home laboratory using **Atomic Red Team** against a personally managed test environment.
+
+All techniques were executed solely for cybersecurity research, defensive validation, and educational purposes. No production systems, third-party environments, or unauthorized assets were involved.
