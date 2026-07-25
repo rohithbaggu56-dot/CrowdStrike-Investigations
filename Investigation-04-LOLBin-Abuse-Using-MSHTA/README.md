@@ -13,6 +13,25 @@ Although all three scenarios abuse the same Windows binary (**MSHTA.exe**), Crow
 This investigation highlights how CrowdStrike Falcon relies on **behavioral analysis**, **AI Powered IOAs**, **process lineage**, and **command-line inspection** instead of traditional signature-based detection.
 
 ---
+## 📑 Table of Contents
+
+- Lab Environment
+- Investigation Objectives
+- Investigation Workflow
+- Why Three Different Alerts?
+- Atomic Technique vs CrowdStrike Detection
+- Scenario 1 – VBScript Execution
+- Scenario 2 – HTA Execution
+- Scenario 3 – PowerShell Execution
+- Detection Comparison
+- MITRE ATT&CK Mapping
+- Key Findings
+- Incident Classification
+- Skills Demonstrated
+- Lessons Learned
+- Conclusion
+
+---
 
 # 🧪 Lab Environment
 
