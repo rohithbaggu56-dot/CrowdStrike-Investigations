@@ -101,31 +101,31 @@ Scenario-1-VBScript-Blocked.mp4
 
 ## Detection Overview
 
-![Detection Overview](Scenario-1-VBScript-Execution/Images/01-detection-overview.png)
+![Detection Overview](Scenario-2-HTA-Execution/Images/01-detection-overview.png)
 
 ---
 
 ## Detection Details
 
-![Detection Details](Scenario-1-VBScript-Execution/Images/02-detection-details.png)
+![Detection Details](Scenario-2-HTA-Execution/Images/02-detection-details.png)
 
 ---
 
 ## Process Tree
 
-![Process Tree](Scenario-1-VBScript-Execution/Images/03-process-tree.png)
+![Process Tree](Scenario-2-HTA-Execution/Images/03-process-tree.png)
 
 ---
 
 ## Event Timeline
 
-![Event Timeline](Scenario-1-VBScript-Execution/Images/04-event-timeline.png)
+![Event Timeline](Scenario-2-HTA-Execution/Images/04-event-timeline.png)
 
 ---
 
 ## Alert Closure
 
-![Alert Closed](Scenario-1-VBScript-Execution/Images/05-alert-closed.png)
+![Alert Closed](Scenario-2-HTA-Execution/Images/05-alert-closed.png)
 
 ---
 
