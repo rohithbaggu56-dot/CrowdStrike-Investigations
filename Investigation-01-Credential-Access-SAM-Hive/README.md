@@ -141,4 +141,26 @@ The behavior accurately matched a real credential dumping technique (MITRE ATT&C
 - Credential Access Investigation
 - MITRE ATT&CK Mapping
 - Incident Documentation
-- Root Cause Analysis
+  
+---
+
+# ✅ Conclusion
+
+This investigation demonstrated CrowdStrike Falcon's ability to detect and prevent unauthorized access to sensitive Windows registry hives associated with credential storage.
+
+By analyzing detection details, process activity, and MITRE ATT&CK mappings, the investigation highlighted how Falcon identifies credential access attempts and provides analysts with the context needed to validate, investigate, and document security events.
+
+The activity was performed in a controlled home SOC lab for defensive testing purposes and was successfully classified as a **Benign True Positive**.
+
+---
+
+# 📝 Analyst Notes
+
+| Field | Value |
+|--------|--------|
+| **Investigation Status** | Closed |
+| **Classification** | Benign True Positive |
+| **Environment** | Home SOC Lab |
+| **Detection Platform** | CrowdStrike Falcon |
+| **Investigation Method** | Manual Registry Command Execution |
+| **Analyst** | Rohith Baggu |
