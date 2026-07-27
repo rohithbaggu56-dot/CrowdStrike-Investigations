@@ -236,23 +236,57 @@ Investigated process injection using Atomic Red Team and analyzed CrowdStrike Fa
 
 ---
 
-# 📊 Project Statistics
+## 📊 Portfolio Summary
 
 - 🗂️ **Total Investigations:** 5
-- 🎯 **MITRE ATT&CK Techniques Covered:** 5
+- 🎯 **MITRE ATT&CK Techniques:** 4
+- 🤖 **Machine Learning Investigation:** 1
 - 🛡️ **Endpoint Detection Platform:** CrowdStrike Falcon
 - 🖥️ **Environment:** Controlled Validation Lab
-- 🤖 **Detection Types:** Behavioral Analysis • Machine Learning • Indicators of Attack (IOAs)
 - ✅ **Investigation Status:** 5 Closed Cases
-
 ---
 
-# 📈 MITRE ATT&CK Coverage
+# 📈 Detection Coverage
 
 - **Credential Access** → **T1003** – OS Credential Dumping
 - **Persistence** → **T1053** – Scheduled Task/Job
 - **Defense Evasion** → **T1218.005** – MSHTA
-- **Machine Learning Detection** → Git Repository Clone
 - **Defense Evasion** → **T1055** – Process Injection
-
+- **Machine Learning Detection** → Git Repository Clone (Behavioral ML Detection)
+  
 These investigations demonstrate CrowdStrike Falcon's ability to detect, prevent, and correlate adversary behaviors while providing analysts with comprehensive investigation artifacts, including process graphs, event timelines, and MITRE ATT&CK mappings.
+
+---
+
+# 🛠️ Skills Demonstrated
+
+Throughout these investigations, the following cybersecurity skills were applied and reinforced:
+
+- Endpoint Detection and Response (EDR) Investigation
+- Incident Triage and Alert Validation
+- Behavioral Analysis
+- Process Tree and Process Graph Analysis
+- MITRE ATT&CK Mapping
+- Windows Endpoint Security
+- Threat Detection and Analysis
+- Atomic Red Team Attack Simulation
+- Incident Documentation
+- Security Report Writing
+
+---
+
+# 🎓 Key Learning Outcomes
+
+This project provided practical experience in investigating endpoint detections using an enterprise-grade EDR platform. Beyond executing attack simulations, the focus was placed on understanding how security analysts validate alerts, analyze behavioral evidence, correlate attack activity, and document investigations following structured SOC workflows.
+
+The investigations strengthened practical knowledge of endpoint telemetry, behavioral detection, MITRE ATT&CK mapping, and incident response methodology while demonstrating how CrowdStrike Falcon supports real-world security operations.
+
+---
+
+# 🔙 Explore More Projects
+
+Interested in more cybersecurity projects?
+
+Return to my main GitHub portfolio to explore additional investigations, home lab projects, SIEM implementations, and technical documentation.
+
+➡️ **[Back to Main Portfolio](https://github.com/rohithbaggu56-dot)**
