@@ -508,9 +508,13 @@ Although all three attack simulations executed the same Atomic Red Team techniqu
 The simulated attacks were successfully detected and blocked or terminated, providing valuable insight into Falcon's AI-powered endpoint protection capabilities and reinforcing the importance of behavioral analytics in modern endpoint security.
 
 ---
+# 📝 Analyst Notes
 
-## ⚠️ Disclaimer
-
-This investigation was performed in an isolated home laboratory using **Atomic Red Team** against a personally managed test environment.
-
-All techniques were executed solely for cybersecurity research, defensive validation, and educational purposes. No production systems, third-party environments, or unauthorized assets were involved.
+| Field | Value |
+|--------|--------|
+| **Investigation Status** | Closed |
+| **Classification** | Benign True Positive |
+| **Environment** | Home SOC Lab |
+| **Detection Platform** | CrowdStrike Falcon |
+| **Investigation Method** | Atomic Red Team |
+| **Analyst** | Rohith Baggu |
