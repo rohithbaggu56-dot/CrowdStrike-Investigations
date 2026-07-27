@@ -25,7 +25,9 @@ This investigation highlights Falcon's layered detection capabilities by combini
 
 # 🔍 Investigation Summary
 
-## Alert Summary
+This investigation analyzes CrowdStrike Falcon's detection and prevention of a simulated Process Injection attack executed using Atomic Red Team (MITRE ATT&CK T1055). During execution, Falcon identified the malicious executable using Cloud-based Machine Learning, generated multiple correlated detections, blocked the process, and automatically quarantined the executable before successful payload execution. The investigation focuses on analyzing the generated detections, process relationships, event timeline, and prevention actions to understand how CrowdStrike Falcon correlates multiple security events into a single incident for efficient SOC investigation.
+
+## Detection Summary
 
 | Field | Value |
 |-------|-------|
@@ -39,6 +41,31 @@ This investigation highlights Falcon's layered detection capabilities by combini
 | **Additional Action** | File Quarantined |
 | **Host** | DESKTOP-1VJALS9 |
 
+---
+
+## 🔄 Investigation Workflow
+
+```text
+Process Injection Simulation
+        ↓
+CrowdStrike Falcon Detection
+        ↓
+Machine Learning Classification
+        ↓
+Process Blocked & File Quarantined
+        ↓
+Process Graph Analysis
+        ↓
+Process Tree Analysis
+        ↓
+Event Timeline Review
+        ↓
+MITRE ATT&CK Mapping
+        ↓
+Incident Classification
+        ↓
+Case Closed
+```
 ---
 
 ## 🧪 Attack Simulation
@@ -144,8 +171,7 @@ The activity was classified as a **Benign True Positive**, and the investigation
 
 ---
 
-## 🎬 Attack Demonstration
-
+## 🎬 Attack Execution & Falcon Prevention
 ![Process Injection ML Blocked](Images/08-process-injection-ml-blocked.gif)
 
 The demonstration below shows the execution of the Atomic Red Team Process Injection simulation and CrowdStrike Falcon's real-time prevention, resulting in automatic process blocking and file quarantine.
@@ -213,24 +239,6 @@ No unauthorized activity occurred outside the isolated testing environment.
 - Event Timeline Correlation
 - MITRE ATT&CK Mapping
 - Incident Documentation
-
----
-
-# 🎯 Investigation Outcome
-
-This investigation successfully demonstrated CrowdStrike Falcon's ability to detect and prevent a simulated Process Injection attack using multiple detection technologies.
-
-A single Atomic Red Team execution generated several correlated detections, allowing analysts to investigate the complete attack chain using Machine Learning detections, behavioral analytics, Process Graphs, Process Trees, and the Event Timeline.
-
-CrowdStrike Falcon automatically:
-
-- ✅ Identified the executable using Cloud-based Machine Learning
-- ✅ Generated correlated behavioral detections
-- ✅ Blocked the malicious process
-- ✅ Quarantined the executable
-- ✅ Preserved investigation artifacts for analyst review
-
-The activity was confirmed as an authorized Atomic Red Team simulation conducted within an isolated home SOC laboratory and was classified as a **Benign True Positive**.
 
 ---
 
