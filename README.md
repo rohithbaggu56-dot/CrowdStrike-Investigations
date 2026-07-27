@@ -120,3 +120,139 @@ The validation workflow focuses on generating realistic endpoint activity, analy
 | SOC Investigation Workflow | Analyze detections, validate alerts, map MITRE techniques, and document findings |
 
 > **Note:** All attack simulations were performed within an isolated lab environment for educational and defensive security purposes.
+
+---
+
+# 🖥️ CrowdStrike Falcon Platform Overview
+
+CrowdStrike Falcon served as the primary Endpoint Detection and Response (EDR) platform throughout this project. Each investigation leveraged Falcon's cloud-native capabilities to detect, analyze, and respond to simulated attack techniques executed within the validation environment.
+
+The following sections highlight the primary Falcon components used during the investigation process.
+
+---
+
+## Endpoint Management
+
+The Endpoint Management dashboard provides centralized visibility into protected endpoints, sensor health, and overall detection activity. It serves as the starting point for identifying monitored assets and reviewing endpoint status.
+
+<p align="center">
+  <img src="Images/01-endpoint-management-overview.png" width="900">
+</p>
+
+---
+
+## MITRE ATT&CK Evaluation
+
+Falcon automatically maps detected behaviors to the MITRE ATT&CK framework, enabling analysts to understand attacker tactics and techniques while improving investigation accuracy.
+
+<p align="center">
+  <img src="Images/02-mitre-attack-evaluation-dashboard.png" width="900">
+</p>
+
+---
+
+## Unified Detections
+
+The Unified Detections dashboard consolidates security alerts into a centralized investigation view, providing severity ratings, behavioral context, and detailed detection information for each event.
+
+<p align="center">
+  <img src="Images/03-unified-detections-dashboard.png" width="900">
+</p>
+
+---
+
+## Quarantined Files
+
+Falcon automatically quarantines malicious files when prevention policies are triggered, helping contain threats while preserving investigation artifacts for further analysis.
+
+<p align="center">
+  <img src="Images/04-quarantined-files-dashboard.png" width="900">
+</p>
+
+---
+
+# 📂 Investigation Catalog
+
+This repository contains five endpoint investigations performed using CrowdStrike Falcon within a controlled validation environment. Each investigation follows a structured SOC analyst workflow, including detection validation, evidence collection, process analysis, MITRE ATT&CK mapping, incident classification, and professional documentation. Select an investigation below to explore the complete analysis, MITRE ATT&CK mapping, evidence, and analyst findings.
+<details>
+<summary><strong>📁 View Investigation Portfolio (5 Investigations)</strong></summary>
+
+<br>
+
+### 🔐 Investigation 01 – Credential Access (SAM Hive)
+
+**MITRE ATT&CK:** T1003 – OS Credential Dumping  
+**Status:** ✅ Closed
+
+Investigated registry hive access associated with credential dumping techniques and analyzed CrowdStrike Falcon's behavioral detection.
+
+➡️ **Repository:** [Investigation-01-Credential-Access-SAM-Hive](./Investigation-01-Credential-Access-SAM-Hive)
+
+---
+
+### 🤖 Investigation 02 – Atomic Red Team Git Clone
+
+**MITRE ATT&CK:** Machine Learning Detection  
+**Status:** ✅ Closed
+
+Investigated machine learning detections generated during an Atomic Red Team repository clone and analyzed Falcon's response.
+
+➡️ **Repository:** [Investigation-02-Atomic-Red-Team-Git-Clone](./Investigation-02-Atomic-Red-Team-Git-Clone)
+
+---
+
+### ⏰ Investigation 03 – Scheduled Task Persistence
+
+**MITRE ATT&CK:** T1053 – Scheduled Task/Job  
+**Status:** ✅ Closed
+
+Investigated persistence through Windows Scheduled Tasks and validated Falcon's prevention capabilities.
+
+➡️ **Repository:** [Investigation-03-Scheduled-Task-Persistence](./Investigation-03-Scheduled-Task-Persistence)
+
+---
+
+### 🌐 Investigation 04 – LOLBin Abuse Using MSHTA
+
+**MITRE ATT&CK:** T1218.005 – MSHTA  
+**Status:** ✅ Closed
+
+Investigated malicious MSHTA execution across multiple attack scenarios and documented Falcon's behavioral detections.
+
+➡️ **Repository:** [Investigation-04-LOLBin-Abuse-Using-MSHTA](./Investigation-04-LOLBin-Abuse-Using-MSHTA)
+
+---
+
+### 💉 Investigation 05 – Process Injection ML Detection
+
+**MITRE ATT&CK:** T1055 – Process Injection  
+**Status:** ✅ Closed
+
+Investigated process injection using Atomic Red Team and analyzed CrowdStrike Falcon's cloud-based machine learning detection and prevention capabilities.
+
+➡️ **Repository:** [Investigation-05-Process-Injection-ML-Detection](./Investigation-05-Process-Injection-ML-Detection)
+
+</details>
+
+---
+
+# 📊 Project Statistics
+
+- 🗂️ **Total Investigations:** 5
+- 🎯 **MITRE ATT&CK Techniques Covered:** 5
+- 🛡️ **Endpoint Detection Platform:** CrowdStrike Falcon
+- 🖥️ **Environment:** Controlled Validation Lab
+- 🤖 **Detection Types:** Behavioral Analysis • Machine Learning • Indicators of Attack (IOAs)
+- ✅ **Investigation Status:** 5 Closed Cases
+
+---
+
+# 📈 MITRE ATT&CK Coverage
+
+- **Credential Access** → **T1003** – OS Credential Dumping
+- **Persistence** → **T1053** – Scheduled Task/Job
+- **Defense Evasion** → **T1218.005** – MSHTA
+- **Machine Learning Detection** → Git Repository Clone
+- **Defense Evasion** → **T1055** – Process Injection
+
+These investigations demonstrate CrowdStrike Falcon's ability to detect, prevent, and correlate adversary behaviors while providing analysts with comprehensive investigation artifacts, including process graphs, event timelines, and MITRE ATT&CK mappings.
