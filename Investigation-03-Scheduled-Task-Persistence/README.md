@@ -185,12 +185,33 @@ This video demonstrates CrowdStrike Falcon immediately blocking the scheduled ta
 
 - CrowdStrike Falcon Investigation
 - Endpoint Detection & Response (EDR)
-- Incident Triage
 - AI Behavioral Detection
 - Process Tree Analysis
 - Event Timeline Analysis
 - Registry Analysis
 - Scheduled Task Persistence Analysis
 - MITRE ATT&CK Mapping
-- Root Cause Analysis
 - Incident Documentation
+
+---
+
+# ✅ Conclusion
+
+This investigation demonstrated CrowdStrike Falcon's ability to detect and prevent persistence techniques involving scheduled task creation.
+
+By analyzing the generated alerts, process activity, and associated MITRE ATT&CK techniques, the investigation showed how Falcon identifies persistence mechanisms and provides analysts with the visibility needed to investigate and validate suspicious behavior.
+
+The activity was conducted using Atomic Red Team within a controlled home SOC lab and was confirmed as a **Benign True Positive**.
+
+---
+
+# 📝 Analyst Notes
+
+| Field | Value |
+|--------|--------|
+| **Investigation Status** | Closed |
+| **Classification** | Benign True Positive |
+| **Environment** | Home SOC Lab |
+| **Detection Platform** | CrowdStrike Falcon |
+| **Investigation Method** | Atomic Red Team |
+| **Analyst** | Rohith Baggu |
