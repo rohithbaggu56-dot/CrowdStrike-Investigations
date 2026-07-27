@@ -109,18 +109,7 @@ The validation workflow focuses on generating realistic endpoint activity, analy
   <img src="Images/lab-architecture.png" alt="CrowdStrike Falcon Validation Environment" width="1000">
 </p>
 
-### Environment Summary
-
-| Component | Purpose |
-|-----------|---------|
-| Atomic Red Team | Simulate MITRE ATT&CK techniques |
-| Windows 10 Endpoint | Target system monitored by CrowdStrike Falcon |
-| CrowdStrike Falcon Sensor | Collect endpoint telemetry and behavioral activity |
-| CrowdStrike Falcon Cloud | Detection, prevention, event correlation, and investigation |
-| SOC Investigation Workflow | Analyze detections, validate alerts, map MITRE techniques, and document findings |
-
 > **Note:** All attack simulations were performed within an isolated lab environment for educational and defensive security purposes.
-
 ---
 
 # 🖥️ CrowdStrike Falcon Platform Overview
@@ -129,9 +118,8 @@ CrowdStrike Falcon served as the primary Endpoint Detection and Response (EDR) p
 
 The following sections highlight the primary Falcon components used during the investigation process.
 
----
 
-## Endpoint Management
+## ⇨ Endpoint Management
 
 The Endpoint Management dashboard provides centralized visibility into protected endpoints, sensor health, and overall detection activity. It serves as the starting point for identifying monitored assets and reviewing endpoint status.
 
@@ -139,9 +127,8 @@ The Endpoint Management dashboard provides centralized visibility into protected
   <img src="Images/01-endpoint-management-overview.png" width="900">
 </p>
 
----
 
-## MITRE ATT&CK Evaluation
+## ⇨ MITRE ATT&CK Evaluation
 
 Falcon automatically maps detected behaviors to the MITRE ATT&CK framework, enabling analysts to understand attacker tactics and techniques while improving investigation accuracy.
 
@@ -149,9 +136,8 @@ Falcon automatically maps detected behaviors to the MITRE ATT&CK framework, enab
   <img src="Images/02-mitre-attack-evaluation-dashboard.png" width="900">
 </p>
 
----
 
-## Unified Detections
+## ⇨ Unified Detections
 
 The Unified Detections dashboard consolidates security alerts into a centralized investigation view, providing severity ratings, behavioral context, and detailed detection information for each event.
 
@@ -159,9 +145,8 @@ The Unified Detections dashboard consolidates security alerts into a centralized
   <img src="Images/03-unified-detections-dashboard.png" width="900">
 </p>
 
----
 
-## Quarantined Files
+## ⇨ Quarantined Files
 
 Falcon automatically quarantines malicious files when prevention policies are triggered, helping contain threats while preserving investigation artifacts for further analysis.
 
