@@ -480,9 +480,6 @@ This demonstrates Falcon's behavior-based detection approach, where detections a
 - Event Timeline Analysis
 - MITRE ATT&CK Mapping
 - Atomic Red Team Testing
-- Threat Hunting
-- Incident Triage
-- Security Alert Analysis
 - Root Cause Analysis
 - Technical Documentation
 
