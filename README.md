@@ -1,55 +1,122 @@
 # 🛡️ CrowdStrike Falcon Investigation Portfolio
 
-Welcome!
+<p align="center">
 
-This repository documents security investigations performed in my CrowdStrike Falcon home lab.
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-CrowdStrike%20Falcon-red?style=for-the-badge)
+![Investigations](https://img.shields.io/badge/Investigations-5-blue?style=for-the-badge)
+![MITRE ATT&CK](https://img.shields.io/badge/MITRE-ATT%26CK-orange?style=for-the-badge)
+![Environment](https://img.shields.io/badge/Lab-Home%20SOC-green?style=for-the-badge)
 
-Each investigation follows a structured SOC workflow including:
+</p>
 
-- 🚨 Alert Review
-- 🔍 Process Investigation
-- 🧠 Detection Analysis
-- 🎯 MITRE ATT&CK Mapping
-- 📊 Impact Assessment
-- ✅ Incident Classification
-- 📸 Supporting Evidence
+
+## 📖 About This Portfolio
+
+This repository documents a series of end-to-end Endpoint Detection and Response (EDR) investigations performed using **CrowdStrike Falcon** within a controlled home SOC laboratory.
+
+Rather than simply executing attack simulations, each investigation follows a structured SOC analyst workflow including detection validation, process analysis, MITRE ATT&CK mapping, incident classification, and professional incident documentation.
+
+The objective of this portfolio is to demonstrate practical experience investigating endpoint detections using enterprise EDR tooling while applying real-world SOC investigation methodology.
+
+
+## 🎯 Project Scope
+
+This portfolio was created to:
+
+- Validate CrowdStrike Falcon detections using controlled attack simulations.
+- Practice endpoint investigation and incident triage.
+- Analyze process execution, timelines, and detection artifacts.
+- Map detections to the MITRE ATT&CK framework.
+- Understand CrowdStrike Falcon's prevention and detection capabilities.
+- Produce professional investigation reports following SOC analyst workflows.
 
 ---
 
-## 🧪 Lab Environment
+# 🧠 Why CrowdStrike Falcon for This Project?
 
-| Component | Details |
+Selecting the right Endpoint Detection and Response (EDR) platform was a key decision when designing this project. The objective was not simply to generate alerts, but to investigate endpoint activity using an enterprise-grade platform that provides comprehensive visibility into attack behavior.
+
+CrowdStrike Falcon was chosen because it combines cloud-native architecture, behavioral analytics, machine learning, and real-time prevention capabilities within a lightweight endpoint sensor. Rather than relying solely on known malware signatures, Falcon continuously monitors endpoint activity to detect suspicious behaviors associated with real-world attack techniques.
+
+Throughout this project, CrowdStrike Falcon was used to:
+
+- Monitor endpoint activity in real time.
+- Detect behavioral indicators of compromise (IOAs).
+- Correlate related security events into investigations.
+- Automatically block or quarantine malicious activity.
+- Map detections to the MITRE ATT&CK framework.
+- Provide detailed investigation artifacts such as Process Graphs, Process Trees, and Event Timelines.
+
+These capabilities enabled each investigation to follow a structured SOC analyst workflow from initial detection through incident analysis, classification, and documentation.
+
+---
+
+# ⚖️ Why EDR Instead of Traditional Antivirus?
+
+Traditional antivirus solutions primarily focus on identifying known malicious files using signatures or reputation-based detection. While effective against many common threats, modern attacks frequently use legitimate system tools and techniques that leave few malicious files to detect.
+
+Endpoint Detection and Response (EDR) platforms provide continuous visibility into endpoint activity by monitoring process execution, command-line activity, registry modifications, persistence mechanisms, network connections, and other behavioral indicators.
+
+This project emphasizes behavioral investigation rather than signature-based detection, making an EDR platform the appropriate choice for validating attack techniques and documenting incident response workflows.
+
+| Traditional Antivirus | CrowdStrike Falcon EDR |
+|------------------------|------------------------|
+| Primarily signature-based detection | Behavioral and machine learning detection |
+| Detects known malicious files | Detects suspicious attack techniques and behaviors |
+| Limited investigation context | Rich investigation artifacts and event correlation |
+| Focuses on malware identification | Supports complete incident investigation and response |
+
+---
+
+# 🧪 Why Atomic Red Team for Detection Validation?
+
+This project uses Atomic Red Team to safely simulate adversary techniques in a controlled lab environment. Each Atomic test is mapped to the MITRE ATT&CK framework, allowing security teams to validate detection capabilities against realistic attack behaviors without deploying actual malware.
+
+Atomic Red Team provides small, repeatable tests that emulate specific ATT&CK techniques, making it well suited for evaluating endpoint detection and response (EDR) platforms.
+
+For this project, Atomic Red Team was used to:
+
+- Validate CrowdStrike Falcon behavioral detections.
+- Generate realistic endpoint telemetry.
+- Execute MITRE ATT&CK techniques in a controlled environment.
+- Analyze Falcon's detection, prevention, and response capabilities.
+- Produce repeatable investigations following SOC analyst workflows.
+
+Using Atomic Red Team ensured that each investigation was based on documented adversary techniques while maintaining a safe testing environment.
+
+---
+
+# ❓ Why EICAR Wasn't the Primary Validation Method?
+
+The EICAR test file is an industry-standard antivirus test file designed to verify signature-based malware detection without using actual malicious code.
+
+During this project, EICAR was not used as the primary validation method because the objective was to evaluate CrowdStrike Falcon's Endpoint Detection and Response (EDR) capabilities rather than traditional signature-based antivirus detection.
+
+Unlike conventional antivirus products that primarily rely on known file signatures, CrowdStrike Falcon emphasizes behavioral analysis by monitoring process execution, command-line activity, persistence mechanisms, registry modifications, and other Indicators of Attack (IOAs). This enables Falcon to identify suspicious behaviors associated with real-world attack techniques, even when no known malware signature is present.
+
+In this lab environment, the EICAR test file did not generate the behavioral detections required for meaningful endpoint investigations. Instead, Atomic Red Team and controlled manual attack simulations were used to produce realistic telemetry, allowing each investigation to include process graphs, event timelines, MITRE ATT&CK mappings, and incident analysis representative of a real SOC workflow.
+
+---
+
+# 🖥️ Validation Environment
+
+This project was conducted in a controlled lab environment to evaluate CrowdStrike Falcon's endpoint detection and response capabilities through safe and repeatable attack simulations.
+
+The validation workflow focuses on generating realistic endpoint activity, analyzing CrowdStrike Falcon detections, and documenting each investigation using a structured SOC analyst methodology.
+
+<p align="center">
+  <img src="Images/lab-architecture.png" alt="CrowdStrike Falcon Validation Environment" width="1000">
+</p>
+
+### Environment Summary
+
+| Component | Purpose |
 |-----------|---------|
-| EDR | CrowdStrike Falcon |
-| Operating System | Windows 10 |
-| Environment | Isolated Home Lab |
-| Purpose | Detection Validation & SOC Investigation |
+| Atomic Red Team | Simulate MITRE ATT&CK techniques |
+| Windows 10 Endpoint | Target system monitored by CrowdStrike Falcon |
+| CrowdStrike Falcon Sensor | Collect endpoint telemetry and behavioral activity |
+| CrowdStrike Falcon Cloud | Detection, prevention, event correlation, and investigation |
+| SOC Investigation Workflow | Analyze detections, validate alerts, map MITRE techniques, and document findings |
 
----
-
-# 📂 Investigations
-
-| Incident ID | Investigation | MITRE ATT&CK | Severity | Status |
-|-------------|---------------|--------------|----------|--------|
-| INC-0001 | [Credential Access via SAM Hive Export](./Investigation-01-Credential-Access-SAM-Hive) | T1003 | 🔴 Critical | ✅ Closed |
-| INC-0002 | [Atomic Red Team Git Clone Detection](./Investigation-02-Atomic-Red-Team-Git-Clone) | N/A | 🟠 High | ✅ Closed |
-
----
-
-## 🎯 Skills Demonstrated
-
-- CrowdStrike Falcon Investigation
-- Endpoint Detection & Response (EDR)
-- Incident Triage
-- Process Tree Analysis
-- Event Timeline Analysis
-- MITRE ATT&CK Mapping
-- Credential Access Investigation
-- Root Cause Analysis
-- Incident Documentation
-
----
-
-## 📌 Note
-
-All investigations were intentionally performed inside an isolated home lab for learning and validation purposes. No production systems or third-party environments were involved.
+> **Note:** All attack simulations were performed within an isolated lab environment for educational and defensive security purposes.
