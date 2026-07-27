@@ -221,7 +221,7 @@ Investigated process injection using Atomic Red Team and analyzed CrowdStrike Fa
 
 ---
 
-## 📊 Portfolio Summary
+## 📊 Project Metrics
 
 - 🗂️ **Total Investigations:** 5
 - 🎯 **MITRE ATT&CK Techniques:** 4
