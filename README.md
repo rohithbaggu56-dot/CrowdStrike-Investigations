@@ -109,7 +109,6 @@ The validation workflow focuses on generating realistic endpoint activity, analy
   <img src="Images/lab-architecture.png" alt="CrowdStrike Falcon Validation Environment" width="1000">
 </p>
 
-> **Note:** All attack simulations were performed within an isolated lab environment for educational and defensive security purposes.
 ---
 
 # 🖥️ CrowdStrike Falcon Platform Overview
